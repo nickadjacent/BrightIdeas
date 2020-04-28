@@ -1,0 +1,37 @@
+@model List<BrightIdea>
+
+@{
+    int? loggedInUserId = Context.Session.GetInt32("UserId");
+    string loggedInAlias = Context.Session.GetString("Alias");
+}
+
+<h1>Hello @loggedInAlias</h1>
+
+@{
+    BrightIdea newIdea = new BrightIdea();
+}
+<partial name="_NewIdea" model="@newIdea"></partial>
+
+
+<div class="container mt-5">
+    @foreach (BrightIdea idea in Model)
+    {
+        <div class="row bg-light border mt-2 mb-2 p-3">
+            <div class="col-md-6">
+                <h3>@idea.SubmittedBy.Name</h3>
+                <p>@idea.Idea</p>
+            </div>
+            <div class="col-md-3 text-right">
+                @if (loggedInUserId == idea.UserId)
+                {
+                    <a
+                        asp-controller="BrightIdeas"
+                        asp-action="Delete"
+                    >
+                        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn2.iconfinder.com%2Fdata%2Ficons%2Fpicons-essentials%2F57%2Fdelete-512.png&f=1&nofb=1" alt="Delete Icon">
+                    </a>
+                }
+            </div>
+        </div>
+    }
+</div>
