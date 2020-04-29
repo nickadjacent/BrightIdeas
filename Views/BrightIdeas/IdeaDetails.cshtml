@@ -11,7 +11,7 @@
         <a
             asp-controller="BrightIdeas"
             asp-action="UserDetails"
-            
+            asp-route-userId="@Model.SubmittedBy.UserId"
         >
             @* @Model.SubmittedBy.Alias *@Person
         </a>
@@ -28,21 +28,13 @@
             <th scope="col">Name</th>
         </thead>
         <tbody>
-            @* @foreach (Like like in Model.Likes) *@
-            @* { *@
+            @foreach (Like like in Model.Likes)
+            {
                 <tr>
-                    <td>person</td>
-                    <td>something</td>
+                    <td>@like.Liker.Alias</td>
+                    <td>@like.Liker.Name</td>
                 </tr>
-                <tr>
-                    <td>person</td>
-                    <td>something</td>
-                </tr>
-                <tr>
-                    <td>person</td>
-                    <td>something</td>
-                </tr>
-            @* } *@
+            }
         </tbody>
     </table>
 </div>
