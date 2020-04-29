@@ -33,4 +33,5 @@
 /Users/cthulhu/Documents/Dojo/C#/ORM/BrightIdeas/obj/Debug/netcoreapp2.2/Razor/Views/BrightIdeas/_DashboardLinks.g.cshtml.cs
 /Users/cthulhu/Documents/Dojo/C#/ORM/BrightIdeas/obj/Debug/netcoreapp2.2/Razor/Views/BrightIdeas/BrightIdeas.g.cshtml.cs
 /Users/cthulhu/Documents/Dojo/C#/ORM/BrightIdeas/obj/Debug/netcoreapp2.2/Razor/Views/BrightIdeas/_NewIdea.g.cshtml.cs
-/Users/cthulhu/Documents/Dojo/C#/ORM/BrightIdeas/obj/Debug/netcoreapp2.2/Razor/Views/BrightIdeas/Details.g.cshtml.cs
+/Users/cthulhu/Documents/Dojo/C#/ORM/BrightIdeas/obj/Debug/netcoreapp2.2/Razor/Views/BrightIdeas/IdeaDetails.g.cshtml.cs
+/Users/cthulhu/Documents/Dojo/C#/ORM/BrightIdeas/obj/Debug/netcoreapp2.2/Razor/Views/BrightIdeas/UserDetails.g.cshtml.cs

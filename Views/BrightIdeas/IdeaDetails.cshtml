@@ -1,0 +1,48 @@
+@model BrightIdea
+
+
+<div class="row mt-5">
+    <p class="col-9"></p>
+    <partial name="_DashboardLinks" class="col-1"></partial>
+</div>
+
+<div class="row mt-3">
+    <h6 class="col-2">
+        <a
+            asp-controller="BrightIdeas"
+            asp-action="UserDetails"
+            
+        >
+            @* @Model.SubmittedBy.Alias *@Person
+        </a>
+        says:
+    </h6>
+    <p class="col-5 border border-dark">@Model.Idea</p>
+</div>
+
+<div class="container mt-5" style="width: 50%;">
+    <h5>People who like this post:</h5>
+    <table class="table table-bordered table-striped">
+        <thead class="table-secondary">
+            <th scope="col">Alias</th>
+            <th scope="col">Name</th>
+        </thead>
+        <tbody>
+            @* @foreach (Like like in Model.Likes) *@
+            @* { *@
+                <tr>
+                    <td>person</td>
+                    <td>something</td>
+                </tr>
+                <tr>
+                    <td>person</td>
+                    <td>something</td>
+                </tr>
+                <tr>
+                    <td>person</td>
+                    <td>something</td>
+                </tr>
+            @* } *@
+        </tbody>
+    </table>
+</div>

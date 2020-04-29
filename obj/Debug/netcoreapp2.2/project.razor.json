@@ -2976,6 +2976,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/cthulhu/Documents/Dojo/C#/ORM/BrightIdeas/Views/BrightIdeas/UserDetails.cshtml",
+      "TargetPath": "Views\\BrightIdeas\\UserDetails.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/cthulhu/Documents/Dojo/C#/ORM/BrightIdeas/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
@@ -3001,11 +3006,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/cthulhu/Documents/Dojo/C#/ORM/BrightIdeas/Views/BrightIdeas/Details.cshtml",
-      "TargetPath": "Views\\BrightIdeas\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "/Users/cthulhu/Documents/Dojo/C#/ORM/BrightIdeas/Views/Shared/_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
@@ -3028,6 +3028,11 @@
     {
       "FilePath": "/Users/cthulhu/Documents/Dojo/C#/ORM/BrightIdeas/Views/BrightIdeas/BrightIdeas.cshtml",
       "TargetPath": "Views\\BrightIdeas\\BrightIdeas.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/cthulhu/Documents/Dojo/C#/ORM/BrightIdeas/Views/BrightIdeas/IdeaDetails.cshtml",
+      "TargetPath": "Views\\BrightIdeas\\IdeaDetails.cshtml",
       "FileKind": "mvc"
     }
   ],

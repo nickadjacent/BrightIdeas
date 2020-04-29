@@ -3,14 +3,16 @@ using System;
 using BrightIdeas.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BrightIdeas.Migrations
 {
     [DbContext(typeof(BrightIdeasContext))]
-    partial class BrightIdeasContextModelSnapshot : ModelSnapshot
+    [Migration("20200429060730_LikeUpdate")]
+    partial class LikeUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

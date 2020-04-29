@@ -51,7 +51,7 @@ namespace BrightIdeas.Models
 
         // Navigation properties
 
-        public List<BrightIdea> Idea { get; set; } // 1 User to Many Posts relationship
+        public List<BrightIdea> Ideas { get; set; } // 1 User to Many Posts relationship
         public List<Like> Likes { get; set; } // Many to Many between User & Post: 1 User can have Many votes
     }
 }

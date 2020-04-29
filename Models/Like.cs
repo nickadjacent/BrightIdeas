@@ -8,7 +8,7 @@ namespace BrightIdeas.Models
         [Key]
         public int LikeId { get; set; }
 
-        public bool IsUpLike { get; set; }
+        public bool IsLiked { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
@@ -18,6 +18,7 @@ namespace BrightIdeas.Models
         // Foreign Keys
         public int BrightIdeaId { get; set; }
         public int UserId { get; set; }
+
 
         // Navigation Properties
         public User Liker { get; set; }

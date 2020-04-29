@@ -1,0 +1,23 @@
+@model User
+
+<div class="row mt-5">
+    <p class="col-9"></p>
+    <partial name="_DashboardLinks" class="col-1"></partial>
+</div>
+
+<div>
+    <p>Name: @Model.Name</p>
+    <p>Alias: @Model.Alias</p>
+    <p>Email: @Model.Email</p>
+</div>
+
+<hr>
+
+<div>
+    <p>
+        Total Number of Posts: @Model.Ideas.Count
+    </p>
+    <p>
+        Total Number of Likes: @Model.Likes.Count
+    </p>
+</div>

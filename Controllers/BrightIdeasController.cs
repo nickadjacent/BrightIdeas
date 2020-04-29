@@ -29,6 +29,11 @@ namespace BrightIdeas.Controllers
         }
 
 
+
+        // initial route pages
+
+
+
         [HttpGet("/bright_ideas")]
         public IActionResult BrightIdeas()
         {
@@ -49,14 +54,58 @@ namespace BrightIdeas.Controllers
 
 
 
+        [HttpGet("/users/{userId}")]
+        public IActionResult UserDetails(int userId)
+        {
+            if (uid == null)
+            {
+                return RedirectToAction("BrightIdeas", "BrightIdeas");
+            }
 
-        [HttpPost("/newIdea")]
+            User selectedUser = db.Users
+                .Include(user => user.Ideas)
+                .Include(user => user.Likes)
+                .FirstOrDefault(user => user.UserId == userId);
+
+            ViewBag.UserId = userId;
+            return View("UserDetails", selectedUser);
+        }
+
+
+
+
+
+        [HttpGet("/bright_ideas/{brightIdeaId}")]
+        public IActionResult IdeaDetails(int brightIdeaId)
+        {
+            if (uid == null)
+            {
+                return RedirectToAction("BrightIdeas", "BrightIdeas");
+            }
+
+            BrightIdea selectedIdea = db.BrightIdeas.FirstOrDefault(idea => idea.BrightIdeaId == brightIdeaId);
+
+            if (selectedIdea == null || selectedIdea.UserId != uid)
+            {
+                return RedirectToAction("BrightIdeas");
+            }
+
+            return View("IdeaDetails", selectedIdea);
+        }
+
+
+
+        // action routes
+
+
+
+        [HttpPost("/bright_ideas/create")]
         public IActionResult Create(BrightIdea newIdea)
         {
 
             if (uid == null)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("BrightIdea", "BrightIdea");
             }
 
             if (ModelState.IsValid)
@@ -67,40 +116,57 @@ namespace BrightIdeas.Controllers
                 return RedirectToAction("BrightIdeas");
 
             }
-            // above return did not run, so not valid, re-render page to display error messages
-            return RedirectToAction("New", "BrightIdeas");
+
+            return RedirectToAction("BrightIdeas", "BrightIdeas");
         }
 
 
-        [HttpGet("/new")]
-        public IActionResult New()
-        {
-            if (uid == null)
-            {
-                return RedirectToAction("BrightIdeas", "BrightIdeas");
-            }
-
-            return View("BrightIdeas", "BrightIdeas");
-        }
-
-
-
-        [HttpGet("/bright_ideas/{userId}")]
-        public IActionResult Details(int userId)
-        {
-            return View("Details");
-        }
 
 
 
         [HttpGet("/bright_ideas/{brightIdeaId}/delete")]
         public IActionResult Delete(int brightIdeaId)
         {
-            BrightIdea dbIdea = db.BrightIdeas.FirstOrDefault(truck => truck.BrightIdeaId == brightIdeaId);
-            db.BrightIdeas.Remove(dbIdea);
+            BrightIdea ideaToDelete = db.BrightIdeas.FirstOrDefault(idea => idea.BrightIdeaId == brightIdeaId);
+            db.BrightIdeas.Remove(ideaToDelete);
             db.SaveChanges();
 
-            return RedirectToAction("BrightIdeas");
+            return RedirectToAction("BrightIdeas", "BrightIdeas");
+        }
+
+
+
+
+
+        [HttpPost("/bright_ideas/like")]
+        public IActionResult Like(int brightIdeaId, bool isLiked)
+        {
+
+            Like currentLikeStatus = db.Likes.FirstOrDefault(like => like.BrightIdeaId == brightIdeaId && like.UserId == (int)uid);
+
+            if (currentLikeStatus == null)
+            {
+                Like newLikeSatus = new Like()
+                {
+                    BrightIdeaId = brightIdeaId,
+                    UserId = (int)uid,
+                    IsLiked = isLiked,
+                };
+
+                db.Likes.Add(newLikeSatus);
+            }
+            else
+            {
+                // if already voted, only update if changing vote
+                if (currentLikeStatus.IsLiked != isLiked)
+                {
+                    currentLikeStatus.IsLiked = isLiked;
+                    db.Likes.Update(currentLikeStatus);
+                }
+            }
+
+            db.SaveChanges();
+            return RedirectToAction("BrightIdeas", "BrightIdeas");
         }
 
     }

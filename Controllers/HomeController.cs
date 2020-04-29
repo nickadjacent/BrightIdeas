@@ -13,16 +13,36 @@ namespace BrightIdeas.Controllers
     public class HomeController : Controller
     {
         private BrightIdeasContext db;
+
+
+
+        private int? uid
+        {
+            get
+            {
+                return HttpContext.Session.GetInt32("UserId");
+            }
+        }
+
+
+
         public HomeController(BrightIdeasContext context)
         {
             db = context;
         }
 
 
+
         public IActionResult Index()
         {
+            if (uid != null)
+            {
+                return RedirectToAction("BrightIdeas", "BrightIdeas");
+            }
+
             return View();
         }
+
 
 
         [HttpPost("/register")]
@@ -64,6 +84,8 @@ namespace BrightIdeas.Controllers
             return RedirectToAction("BrightIdeas", "BrightIdeas");
         }
 
+
+
         [HttpPost("/login")]
         public IActionResult Login(LoginUser loginUser)
         {
@@ -99,17 +121,22 @@ namespace BrightIdeas.Controllers
             return RedirectToAction("BrightIdeas", "BrightIdeas");
         }
 
-        [HttpPost("/logout")]
+
+
+        [HttpGet("/logout")]
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
             return RedirectToAction("Index");
         }
 
+
+
         public IActionResult Privacy()
         {
             return View();
         }
+
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -1,9 +1,9 @@
 @model BrightIdea
 
 <div class="container mt-5">
-    <form asp-controller="BrightIdeas" asp-action="newIdea" method="POST" class="form-group row" >
+    <form asp-controller="BrightIdeas" asp-action="Create" method="POST" class="form-group row" >
         <div class="col-sm-8 col-form-label">
-            <input class="col-sm-11 col-form-label" type="text" value="post something witty here...">
+            <input asp-for="Idea" class="col-sm-11 col-form-label" value="post something witty here...">
         </div>
 
         <button class="btn btn-outline-dark col-sm-2">Add Idea!</button>
