@@ -12,12 +12,14 @@ namespace BrightIdeas.Models
 
 
         [Required(ErrorMessage = "is required.")]
+        [MinLength(2, ErrorMessage = "must be at least {1} characters")]
         [RegularExpression(@"^[a-zA-Z\s]{1,40}$", ErrorMessage = "Name should be letters and spaces only.")]
         [Display(Name = "Name")]
         public string Name { get; set; }
 
 
         [Required(ErrorMessage = "is required.")]
+        [MinLength(2, ErrorMessage = "must be at least {1} characters")]
         [RegularExpression(@"^[a-zA-Z0-9]{1,40}$", ErrorMessage = "Alias should be letters and numbers only.")]
         // [MinLength(2, ErrorMessage = "must be at least {1} characters")]
         [Display(Name = "Alias")]
@@ -46,6 +48,7 @@ namespace BrightIdeas.Models
 
 
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
+
 
 
 

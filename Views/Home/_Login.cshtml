@@ -1,20 +1,20 @@
 @model LoginUser
 
-<fieldset class="border p-5" >
+<fieldset class="border p-5">
     <legend style="width: 20%;">&nbsp&nbsp Login</legend>
     <form asp-controller="Home" asp-action="Login" method="POST">
         <div class="form-group">
             <label asp-for="LoginEmail"></label>
             <span class="text-danger font-weight-bold" asp-validation-for="LoginEmail"></span>
-            <input class="form-control" asp-for="LoginEmail" value="t@t.com"/>
+            <input class="form-control" asp-for="LoginEmail" />
         </div>
-    
+
         <div class="form-group">
             <label asp-for="LoginPassword"></label>
             <span class="text-danger font-weight-bold" asp-validation-for="LoginPassword"></span>
-            <input class="form-control" asp-for="LoginPassword" value="testtest"/>
+            <input class="form-control" asp-for="LoginPassword" />
         </div>
-    
+
         <button class="btn btn-info" type="submit">Login</button>
     </form>
 </fieldset>

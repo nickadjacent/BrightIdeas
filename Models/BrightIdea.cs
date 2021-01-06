@@ -10,8 +10,8 @@ namespace BrightIdeas.Models
         public int BrightIdeaId { get; set; }
 
 
-        [Required(ErrorMessage = "is required")]
-        [MinLength(5, ErrorMessage = "must be at least {1} characters")]
+        [Required(ErrorMessage = "Idea required.")]
+        [MinLength(5, ErrorMessage = "Must be at least {1} characters.")]
         public string Idea { get; set; }
 
 

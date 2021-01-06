@@ -8,7 +8,7 @@
 <div class="container mt-5">
     <div class="row">
         <h1 class="col-9">Hello @loggedInAlias!</h1>
-        <partial name="_DashboardLinks" class="col-1"></partial>
+            <partial name="_DashboardLinks" class="col-1"></partial>
     </div>
 </div>
 
@@ -17,7 +17,7 @@
     newIdea.UserId = (int)loggedInUserId;
 }
 
-<partial name="_NewIdea" model="@newIdea"></partial>
+    <partial name="_NewIdea" model="@newIdea"></partial>
 
 <div class="container mt-5">
     @foreach (BrightIdea idea in Model)
@@ -25,13 +25,9 @@
         <div class="container row m-5">
             <div class="col-2">
                 <h6>
-                    <a
-                        asp-controller="BrightIdeas"
-                        asp-action="UserDetails"
-                        asp-route-userId="@idea.SubmittedBy.UserId"
-                    >
+                    <a asp-controller="BrightIdeas" asp-action="UserDetails" asp-route-userId="@idea.SubmittedBy.UserId">
                         @idea.SubmittedBy.Alias
-                        
+
                     </a>
                     says:
                 </h6>
@@ -41,25 +37,17 @@
                     <p>@idea.Idea</p>
                 </div>
                 <div class="row">
-                    <form
-                        method="POST"
-                        asp-controller="BrightIdeas"
-                        asp-action="Like"
-                        asp-route-brightIdeaId="@idea.BrightIdeaId"
-                        asp-route-isLiked="true"
-                        class="col-3"
-                    >
+                    <form method="POST" asp-controller="BrightIdeas" asp-action="Like"
+    asp-route-brightIdeaId="@idea.BrightIdeaId" asp-route-isLiked="true" class="col-3">
                         <button class="btn text-primary">
-                            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn2.iconfinder.com%2Fdata%2Ficons%2Fcommunication-language%2F100%2FFB_Like-01-512.png&f=1&nofb=1" alt="Thumbs Up" style="width: 15%;">
+                            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn2.iconfinder.com%2Fdata%2Ficons%2Fcommunication-language%2F100%2FFB_Like-01-512.png&f=1&nofb=1"
+                            alt="Thumbs Up" style="width: 15%;">
                             Like
                         </button>
                     </form>
                     <p class="col-9">
-                        <a
-                            asp-controller="BrightIdeas"
-                            asp-action="IdeaDetails"
-                            asp-route-brightIdeaId="@idea.BrightIdeaId"
-                        >
+                        <a asp-controller="BrightIdeas" asp-action="IdeaDetails"
+    asp-route-brightIdeaId="@idea.BrightIdeaId">
                             @idea.Likes.Count people
                         </a>
                         like this.
@@ -69,17 +57,13 @@
             <div class="col-1">
                 @if (loggedInUserId == idea.UserId)
                 {
-                    <a
-                        asp-controller="BrightIdeas"
-                        asp-action="Delete"
-                        asp-route-brightIdeaId="@idea.BrightIdeaId"
-                        class="mt-1 btn btn-outline-secondary"
-                    >
-                        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn2.iconfinder.com%2Fdata%2Ficons%2Fpicons-essentials%2F57%2Fdelete-512.png&f=1&nofb=1" alt="Delete Icon" style="width: 100%;">
+                    <a asp-controller="BrightIdeas" asp-action="Delete" asp-route-brightIdeaId="@idea.BrightIdeaId"
+        class="mt-1 btn btn-outline-secondary">
+                        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn2.iconfinder.com%2Fdata%2Ficons%2Fpicons-essentials%2F57%2Fdelete-512.png&f=1&nofb=1"
+                        alt="Delete Icon" style="width: 100%;">
                     </a>
                 }
+                </div>
             </div>
-        </div>
-        
     }
 </div>

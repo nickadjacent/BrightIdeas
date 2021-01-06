@@ -1,11 +1,7 @@
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BrightIdeas.Models;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,8 +9,6 @@ namespace BrightIdeas.Controllers
 {
     public class BrightIdeasController : Controller
     {
-        private BrightIdeasContext db;
-
         private int? uid
         {
             get
@@ -23,6 +17,9 @@ namespace BrightIdeas.Controllers
             }
         }
 
+
+
+        private BrightIdeasContext db;
         public BrightIdeasController(BrightIdeasContext context)
         {
             db = context;

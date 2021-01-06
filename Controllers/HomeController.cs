@@ -12,10 +12,6 @@ namespace BrightIdeas.Controllers
 {
     public class HomeController : Controller
     {
-        private BrightIdeasContext db;
-
-
-
         private int? uid
         {
             get
@@ -26,6 +22,7 @@ namespace BrightIdeas.Controllers
 
 
 
+        private BrightIdeasContext db;
         public HomeController(BrightIdeasContext context)
         {
             db = context;
